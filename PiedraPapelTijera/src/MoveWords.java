@@ -6,7 +6,7 @@ public class MoveWords{
     public static final int GANA = 1;
     public static final int PIERDE = 2;
 
-    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA"};
+    private static final String[] validMoves = {"PIEDRA", "SPOCK", "PAPEL", "LAGARTO", "TIJERAS"};
     private static final String[] validCommands = {"SALIR", "HELP"};
 
     private Random rnd;
@@ -67,7 +67,17 @@ public class MoveWords{
 
 	    if (first_i == second_i) return EMPATE;
 	    
-	    return (( (first_i +1) % validMoves.length ) == second_i ) ? GANA: PIERDE;
+	    if (( (second_i +1) % validMoves.length ) == first_i ) return GANA;
+	    
+	    if (( (second_i +2) % validMoves.length ) == first_i ) return GANA;
+	    
+	    else return PIERDE;
+	    //return (( (first_i +1) % validMoves.length ) == second_i ) ? GANA: PIERDE;
 	}
-	
+	//Si first_i=0 es TIJERAS, 1 es PAPEL, 2 es PIEDRA
+    //Si escogemos i=2 PIEDRA, 2+1=3 3%3=1
+    //1 corresponde a TIJERAS, por lo tanto como 1==1, ganas.
+    //Correspondiendo a esto, si eliges SPOCK y te enfrentas a PIEDRA
+    //SPOCK es 5+1=6 6%5=1 1=/=2 por lo tanto PIERDES
+    //
 } 
