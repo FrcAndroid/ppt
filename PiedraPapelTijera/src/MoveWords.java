@@ -75,9 +75,22 @@ public class MoveWords{
 	    //return (( (first_i +1) % validMoves.length ) == second_i ) ? GANA: PIERDE;
 	}
 	//Si first_i=0 es TIJERAS, 1 es PAPEL, 2 es PIEDRA
-    //Si escogemos i=2 PIEDRA, 2+1=3 3%3=1
-    //1 corresponde a TIJERAS, por lo tanto como 1==1, ganas.
+    //Si escogemos i=2 PIEDRA, 2+1=3 3%3=0
+    //0 corresponde a TIJERAS, por lo tanto como 0==0, ganas.
     //Correspondiendo a esto, si eliges SPOCK y te enfrentas a PIEDRA
     //SPOCK es 5+1=6 6%5=1 1=/=2 por lo tanto PIERDES
     //
-} 
+}	//Ahora, con el código modificado
+	// Piedra es 0, Spock 1, Papel 2, Lagarto 3 y Tijeras 4
+	//Si elegimos Spock, primero se calcula la elección de la computadora
+	//Para ganar, deben elegir TIJERAS o PIEDRA, estos son 0 y 4 respectivamente, Spock es 1
+	// PIEDRA=4+2=6 6%5=1 SPOCK ES 1 1==1 GANA SPOCK
+	// LAGARTO=3+2=5 5%5=0 0=/=1 PIERDE SPOCK
+	// PAPEL= 2+2=4 4%5=4 4=/=1 PIERDE SPOCK
+	// TIJERAS= 4+2=6 6%5=1 1==1 GANA SPOCK
+// El código ELSE se activa cuando ninguna de las condiciones IF se satisfacen
+// Por ejemplo, en el caso de LAGARTOvsSPOCK, 3+1=4 4%5=4 4=/=1 PIERDE SPOCK
+// Salta al siguiente ejemplo 3+2=$ 5%5=0 0=/=1 PIERDE SPOCK
+// Probamos con un caso en el que gana SPOCK
+// PIEDRA 4+1=5 5%5=0 0=/=1 por lo que salta al siguiente if
+// PIEDRA 4+2=6 6%5=1 1==1 GANA SPOCK
